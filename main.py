@@ -7,7 +7,7 @@ parser.add_argument('-n', '--name', type=str, nargs='+', required=True)
 parser.add_argument('-nn', '--uNameNum', default='01', type=str)
 parser.add_argument('-en', '--emailNum', default='', type=str)
 parser.add_argument('-o', '--o365', default='none', type=str)
-parser.add_argument('-p', '--passw', default='<Defualt Password Here>', type=str)
+parser.add_argument('-p', '--passw', default='<Default Password Here>', type=str)
 parser.add_argument('-c',
                     '--compName',
                     default='<Company Name Here>',
@@ -37,19 +37,19 @@ class Person:
         self.deskPhoneFull = f"{self.phonePrefix}{self.deskPhoneExt}" if self.deskPhoneExt else ""
 
         self.compName = args.compName.upper()
-
+        self.compDomain = '<Company Domain Here>'
+        
         self.subTitle = "New User Welcome Sheet"
 
         self.emailNum = args.emailNum
         self.uEmail = f'{self.fName}{self.lName[0]}{self.emailNum}@{self.compDomain}'
-        self.webLink = f'webmail.{self.compDomain}'
+        self.webLink = f'<webmail address here>.{self.compDomain}'
         self.owaLink = f'{self.webLink}/owa'
-        self.domainName = '<Company Domain Here>'
         self.itEmail = f'helpdesk@{self.compDomain}'
         self.itNumber = f'{self.phonePrefix}<IT Phone Number Here>'
         self.supportInfo = f'Please contact IT by phone {self.itNumber} or Email {self.itEmail}'
-        self.passExpire = '90'
-        self.passwordLength = '7'
+        self.passExpire = '<Days password will expire here>'
+        self.passwordLength = '<Length of password here>'
         self.passw = f'{generatePass() if args.passw == "gen" else args.passw}'
 
         # Office 365 password setup
@@ -63,7 +63,7 @@ class Person:
             self.office365P = f'{args.o365}'
 
         self.displayEmail = f'Email Address: {self.uEmail}'
-        self.webmailU = f'{self.domainName}/{self.uName}'
+        self.webmailU = f'{self.compDomain}/{self.uName}'
         self.webmailP = f'{self.passw}'
         self.emailFlag = args.email
 

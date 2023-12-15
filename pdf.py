@@ -72,7 +72,7 @@ class MyPDF(FPDF):
         self._regular_cell('\t\tThe connection will be secured using SSL.')
         self._regular_cell('\t\tAccount type: Exchange')
         self._regular_cell(f'\t\tServer name: {self.newUser.webLink}')
-        self._regular_cell(f'\t\tDomain: {self.newUser.domainName}')
+        self._regular_cell(f'\t\tDomain: {self.newUser.compDomain}')
         self._regular_cell(f'\t\tUsername: {self.newUser.uName}')
         self._regular_cell(f'\t\tPassword: {self.newUser.passw}')
 
@@ -249,17 +249,6 @@ class MyPDF(FPDF):
         self._add_vertical_space(90)
 
         self._regular_cell('\t\tFinally, Click OK.', w=0, h=5)
-
-        self._add_vertical_space(30)
-
-        self._multiLine_cell(
-            '\t\tPlease Note: You can safely ignore any "Something went wrong" windows that popup.',
-            w=0,
-            h=5)
-
-        self._add_vertical_space(5)
-
-        self._add_image('img/email/image12.png', 30, 0, 90, 75, 'png')
 
 
 def welcomePDF(newUser):
