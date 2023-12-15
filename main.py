@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-n', '--name', type=str, nargs='+', required=True)
 parser.add_argument('-nn', '--uNameNum', default='01', type=str)
 parser.add_argument('-en', '--emailNum', default='', type=str)
-parser.add_argument('-o', '--o365', default='none', type=str)
+parser.add_argument('-o', '--o365', default='<Default Password Here>', type=str)
 parser.add_argument('-p', '--passw', default='<Default Password Here>', type=str)
 parser.add_argument('-c',
                     '--compName',
