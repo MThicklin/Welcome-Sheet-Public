@@ -62,9 +62,18 @@ class MyPDF(FPDF):
 
         self._add_vertical_space(5)
 
-        self._regular_cell(f'CE Webmail: {self.newUser.owaLink}')
+        self._regular_cell(f'{self.newUser.compName} Webmail: {self.newUser.owaLink}')
         self._regular_cell(f'\t\tWebmail Username: {self.newUser.webmailU}')
         self._regular_cell(f'\t\tWebmail Password: {self.newUser.webmailP}')
+
+        self._add_vertical_space(5)
+
+
+        if (self.newUser.deskPhoneExt):
+            self._regular_cell('Desk Phone information:')
+            self._regular_cell(f'\t\tDesk Phone Extension (Internal Use): {self.newUser.deskPhoneExt}')
+            self._regular_cell(f'\t\tFull Deskphone Number (External Use): {self.newUser.deskPhoneFull}')
+            self._regular_cell(f'\t\tVoicemail passcode: {self.newUser.voicemail}')
 
         self._add_vertical_space(5)
 

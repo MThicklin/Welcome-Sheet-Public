@@ -1,5 +1,5 @@
 from pdf import welcomePDF
-from passwordGen import generatePass
+from passwordGen import generatePass, generateVMPass
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -13,6 +13,7 @@ parser.add_argument('-c',
                     default='<Company Name Here>',
                     type=str)
 parser.add_argument('-d', '--deskPhoneExt', default='<Company Phone Here>', type=str)
+parser.add_argument('-v', '--voicemail', default='0000', type=str)
 parser.add_argument('--phone', action='store_true')
 parser.add_argument('--email', action='store_true')
 
@@ -35,6 +36,10 @@ class Person:
         self.phoneFlag = args.phone
         self.deskPhoneExt = args.deskPhoneExt if args.deskPhoneExt != 'none' else None
         self.deskPhoneFull = f"{self.phonePrefix}{self.deskPhoneExt}" if self.deskPhoneExt else ""
+        if args.voicemail == 'gen':
+            self.voicemail = f'{generateVMPass()}'
+        else:
+            self.voicemail = args.voicemail
 
         self.compName = args.compName.upper()
         self.compDomain = '<Company Domain Here>'

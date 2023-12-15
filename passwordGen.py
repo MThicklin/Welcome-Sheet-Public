@@ -16,3 +16,8 @@ def generatePass():
     password = x + y + str(z1) + str(z2)
 
     return "".join(password.split())
+
+def generateVMPass():
+    VMPass = random.randint(1000, 9999)
+
+    return VMPass
